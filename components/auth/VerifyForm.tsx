@@ -7,6 +7,7 @@ import { Verify } from "@/actions/Verify";
 import { Button } from "../ui/button";
 import { useSearchParams } from "next/navigation";
 import { useState } from "react";
+import { Suspense } from 'react'
 import HashLoader from "react-spinners/HashLoader";
 export default function VerifyForm(){
     const [loading, setLoading] = useState(false);
@@ -42,6 +43,7 @@ export default function VerifyForm(){
 
     }
     return(
+        <Suspense>
         <div className="space-y-2">
         <CardWrapper headerlabel="welcome back" backButtonHref="/auth/login" backButtonLabel="Already have an Account?">
             {
@@ -66,5 +68,6 @@ export default function VerifyForm(){
             </div>
         </CardWrapper>
         </div>
+        </Suspense>
     )
 }
