@@ -43,7 +43,6 @@ export default function VerifyForm(){
 
     }
     return(
-        <Suspense>
         <div className="space-y-2">
         <CardWrapper headerlabel="welcome back" backButtonHref="/auth/login" backButtonLabel="Already have an Account?">
             {
@@ -68,6 +67,5 @@ export default function VerifyForm(){
             </div>
         </CardWrapper>
         </div>
-        </Suspense>
     )
 }
