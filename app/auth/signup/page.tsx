@@ -1,11 +1,12 @@
 import React from "react";
-import RegisterForm  from "@/components/auth/register-form"
- function Signup(){
-    return(
+import { RegisterForm } from "@/components/auth/register-form";
+
+function Signup() {
+    return (
         <div>
-            <RegisterForm/>
+            <RegisterForm />
         </div>
-    )
+    );
 }
 
 export default Signup;
