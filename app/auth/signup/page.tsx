@@ -1,5 +1,5 @@
 import { RegisterForm } from "@/components/auth/register-form"
-export default function Signup({children}:{children:React.ReactNode}){
+export default function Signup(){
 
     return(
         <div>
