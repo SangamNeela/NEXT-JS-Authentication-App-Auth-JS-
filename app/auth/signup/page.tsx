@@ -1,3 +1,4 @@
+import React from "react";
 import { RegisterForm } from "@/components/auth/register-form"
  function Signup({children}:{children:React.ReactNode}){
 
@@ -8,4 +9,4 @@ import { RegisterForm } from "@/components/auth/register-form"
     )
 }
 
-export default Signup
+export default Signup;
