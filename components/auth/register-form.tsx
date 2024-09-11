@@ -12,7 +12,7 @@ import { FormSuccess } from "@/components/form-success"
 import { FormError } from "@/components/form-error"
 import { useState } from "react"
 import SyncLoader from "react-spinners/SyncLoader"
-export function RegisterForm(){
+export default function RegisterForm(){
     const [error,setError]=useState<string |null>(null);
     const [success,setSuccess]=useState<string |null>(null);
     const [loading,setLoading]=useState<boolean>(false);

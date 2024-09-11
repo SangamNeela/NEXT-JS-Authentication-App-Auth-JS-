@@ -1,7 +1,6 @@
 import React from "react";
-import { RegisterForm } from "@/components/auth/register-form"
- function Signup({children}:{children:React.ReactNode}){
-
+import RegisterForm  from "@/components/auth/register-form"
+ function Signup(){
     return(
         <div>
             <RegisterForm/>
