@@ -7,7 +7,6 @@ import { Verify } from "@/actions/Verify";
 import { Button } from "../ui/button";
 import { useSearchParams } from "next/navigation";
 import { useState } from "react";
-import { Suspense } from 'react'
 import HashLoader from "react-spinners/HashLoader";
 export default function VerifyForm(){
     const [loading, setLoading] = useState(false);

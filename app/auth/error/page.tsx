@@ -1,6 +1,7 @@
 "use client"
 
 import { useSearchParams } from "next/navigation"
+import { Suspense } from "react"
 
 enum Error {
   OAuthAccountNotLinked = "OAuthAccountNotLinked",
@@ -17,19 +18,21 @@ const errorMap = {
 }
 
 export default function AuthErrorPage() {
-  const search = useSearchParams()
-  const error = search.get("error") as Error
+  // const search = useSearchParams()
+  // const error = search.get("error") as Error
 
   return (
+    <Suspense>
     <div className="flex h-screen w-full flex-col items-center justify-center">
       <div className="block max-w-sm rounded-lg border border-gray-200 bg-white p-6 text-center shadow hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
         <h5 className="mb-2 flex flex-row items-center justify-center gap-2 text-xl font-bold tracking-tight text-gray-900 dark:text-white">
           Authentication Error
         </h5>
-        <div className="font-normal text-gray-700 dark:text-gray-400">
+        {/* <div className="font-normal text-gray-700 dark:text-gray-400">
           {errorMap[error] || "An unknown error occurred. Please try again or contact support."}
-        </div>
+        </div> */}
       </div>
     </div>
+    </Suspense>
   )
 }
