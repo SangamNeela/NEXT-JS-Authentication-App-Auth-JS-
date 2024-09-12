@@ -1,9 +1,10 @@
 import {auth} from "@/auth"
 import { apiAuthPrefix,authRoutes,publicRoutes } from "./routes";
 
-export default auth((req)=>{
+
+export default  auth((req)=>{
     const {nextUrl} = req;
-    const isLoggedin=!!req.auth
+    const isLoggedin= auth().then((data)=>data);
     console.log("ISLOGGES IN = ",isLoggedin);
     const isApiAuthRoute=nextUrl.pathname.startsWith(apiAuthPrefix);
     const isPublicRoute=publicRoutes.includes(nextUrl.pathname);
