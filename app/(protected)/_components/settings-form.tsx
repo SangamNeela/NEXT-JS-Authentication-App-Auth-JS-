@@ -15,7 +15,6 @@ import { Switch } from "@/components/ui/switch";
 import z from "zod";
 import { UserRole } from "@prisma/client";
 import { useUser } from "@/hooks/useUser";
-import { CounterClockwiseClockIcon } from "@radix-ui/react-icons";
 interface response {
     success?:string,
     error?:string,
