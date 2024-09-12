@@ -1,10 +1,14 @@
 import {auth} from "@/auth"
 import { apiAuthPrefix,authRoutes,publicRoutes } from "./routes";
+import { getToken } from "next-auth/jwt";
+import { NextRequest } from "next/server";
 
-
-export default  auth((req)=>{
+export default async function middleware(req:NextRequest){
     const {nextUrl} = req;
-    const isLoggedin= !!req.auth
+    // const isLoggedin= !!req.auth;
+    const secret = process.env.AUTH_SECRET as string;
+    const token = await getToken({ req, secret,salt:"100"});
+    const isLoggedin = !!token;
     console.log("ISLOGGES IN = ",isLoggedin);
     const isApiAuthRoute=nextUrl.pathname.startsWith(apiAuthPrefix);
     const isPublicRoute=publicRoutes.includes(nextUrl.pathname);
