@@ -1,5 +1,5 @@
 import {auth} from "@/auth"
-import { apiAuthPrefix,DefaultLoginRedirect,authRoutes,publicRoutes } from "./routes";
+import { apiAuthPrefix,authRoutes,publicRoutes } from "./routes";
 
 export default auth((req)=>{
     const {nextUrl} = req;
@@ -10,7 +10,9 @@ export default auth((req)=>{
     const isAuthRoute=authRoutes.includes(nextUrl.pathname);
 
     if(isApiAuthRoute)return ;
-
+    if(isPublicRoute){
+        return;
+    }
     if(isAuthRoute){
         if(isLoggedin){
             return Response.redirect(new URL("/settings",nextUrl));
@@ -29,5 +31,6 @@ export default auth((req)=>{
 
 
 export const config={
-    matcher:["/auth/login","/auth/signup","/settings","/auth/error","/client","/admin","/server"]
+    // matcher:["/auth/login","/auth/signup","/settings","/auth/error","/client","/admin","/server"]
+    matcher:['/((?!.+\\.[\\w]+$|_next).*)','/','/(api|trpc)(.*)'],
 }

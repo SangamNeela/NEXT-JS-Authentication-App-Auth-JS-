@@ -15,11 +15,18 @@ export async  function login(values:z.infer<typeof loginSchema>){
     }
     const {code}=validateFields.data;
     //verify user from database
-    const user= await db.user.findUnique({
-        where:{
-            email:validateFields.data.email
-        }
-    });
+    let user=null;
+    try {
+        
+        user= await db.user.findFirst({
+            where:{
+                email:validateFields.data.email
+            }
+        });
+    } catch (error) {
+        return{error:"something Went Wrong"}
+        
+    }
     if(!user) return{error:"User Not Found"};
     if(!user.password) return{error:"please create account"};
     // check if email is verified
