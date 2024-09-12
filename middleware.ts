@@ -4,7 +4,7 @@ import { apiAuthPrefix,authRoutes,publicRoutes } from "./routes";
 
 export default  auth((req)=>{
     const {nextUrl} = req;
-    const isLoggedin= auth().then((data)=>data);
+    const isLoggedin= req.auth?.user
     console.log("ISLOGGES IN = ",isLoggedin);
     const isApiAuthRoute=nextUrl.pathname.startsWith(apiAuthPrefix);
     const isPublicRoute=publicRoutes.includes(nextUrl.pathname);
