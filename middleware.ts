@@ -32,7 +32,7 @@ export default async function middleware(req:NextRequest){
         return Response.redirect(new URL("/auth/login",nextUrl));
     }
     return
-})
+}
 
 
 export const config={
