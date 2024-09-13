@@ -7,7 +7,7 @@ export async function sendEmail(email:string,token:string,forgotPassword?:boolea
     console.log("domain = >>>>>>>>>>>>>>>>>>>>>>>>>>",domain);
     try {
         if(forgotPassword){
-            const link=`${domain}/auth/forgot-password?token=${token}`
+            const link=`${domain}auth/forgot-password?token=${token}`
             const { data, error } = await resend.emails.send({
                 from: 'Acme <onboarding@resend.dev>',
                 to: "neelasangam8433@gmail.com",
