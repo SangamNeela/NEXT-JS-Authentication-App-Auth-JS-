@@ -6,7 +6,7 @@ export async function sendEmail(email:string,token:string,forgotPassword?:boolea
     const domain=process.env.NEXT_PUBLIC_APP_URL;
     try {
         if(forgotPassword){
-            const link=`${domain}/auth/forgot-password?token=${token}`
+            const link=`https://next-js-authentication-app-auth-js.vercel.app/auth/forgot-password?token=${token}`
             const { data, error } = await resend.emails.send({
                 from: 'Acme <onboarding@resend.dev>',
                 to: "neelasangam8433@gmail.com",
