@@ -4,9 +4,10 @@ import { EmailTemplateForgotPassword } from '@/components/auth/email-template-fo
 export async function sendEmail(email:string,token:string,forgotPassword?:boolean){
     const resend = new Resend(process.env.RESEND_API_KEY);
     const domain=process.env.NEXT_PUBLIC_APP_URL;
+    console.log("domain = >>>>>>>>>>>>>>>>>>>>>>>>>>",domain);
     try {
         if(forgotPassword){
-            const link=`https://next-js-authentication-app-auth-js.vercel.app/auth/forgot-password?token=${token}`
+            const link=`${domain}/auth/forgot-password?token=${token}`
             const { data, error } = await resend.emails.send({
                 from: 'Acme <onboarding@resend.dev>',
                 to: "neelasangam8433@gmail.com",
@@ -19,7 +20,7 @@ export async function sendEmail(email:string,token:string,forgotPassword?:boolea
             }
         }
         else{
-            const link=`${domain}/auth/verify-email?token=${token}`
+            const link=`${domain}auth/verify-email?token=${token}`
             const { data, error } = await resend.emails.send({
             from: 'Acme <onboarding@resend.dev>',
             to: "neelasangam8433@gmail.com",
