@@ -40,11 +40,11 @@ export default function AdminPage(){
                 <RoleGate allowedRole={UserRole.ADMIN}>
                     <FormSuccess successMessage="you are allowed to see this content"/>
                 </RoleGate>
-                <div className="flex justify-between items-center gap-x-40 shadow-lg px-2 py-2 rounded-lg">
+                <div className="flex flex-wrap justify-between items-center gap-x-40 gap-y-3 shadow-lg px-2 py-2 rounded-lg">
                     <p className="text-md font-semibold font-mono">Admin Only API Route</p>
                     <Button onClick={handleAPIClick}>Click to Test</Button>
                 </div>
-                <div className="flex items-center gap-x-40 shadow-lg px-2 py-2 rounded-lg">
+                <div className="flex flex-wrap justify-between items-center gap-x-40 gap-y-3 shadow-lg px-2 py-2 rounded-lg">
                     <p className="text-md font-semibold font-mono">Admin Only Server Action</p>
                     <Button onClick={handleServerAction}>Click to Test</Button>
                 </div>

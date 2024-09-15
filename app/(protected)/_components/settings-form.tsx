@@ -60,7 +60,7 @@ function SettingsForm(){
     return(
         <div>
         <Form {...form}>
-                <form onSubmit={form.handleSubmit(handleSubmit)} className="space-y-3 min-w-[600px]" > 
+                <form onSubmit={form.handleSubmit(handleSubmit)} className="space-y-3" > 
                     <FormField
                         control={form.control}
                         name="name"
