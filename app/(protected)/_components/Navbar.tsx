@@ -11,6 +11,7 @@ export default function Navbar(){
         router.push("/server");
         router.refresh();
     }
+    
     return(
         <nav className="p-2 w-min-[350px] sm:w-[400px] md:w-[600px] bg-secondary rounded-lg flex flex-wrap-reverse gap-y-5 gap-x-20 justify-center ">
             <div >
