@@ -94,7 +94,7 @@ function SettingsForm(){
                         name="password"
                         render={({field})=>(
                             <FormItem>
-                                <FormLabel>Password</FormLabel>
+                                <FormLabel>Old Password</FormLabel>
                                 <FormControl>
                                     <Input type="password" {...field} />
                                 </FormControl>
@@ -122,14 +122,15 @@ function SettingsForm(){
                         control={form.control}
                         name="role"
                         render={({field})=>(
-                            <FormItem>
-                                <FormLabel>Role</FormLabel>
-                                <FormControl>
+                            <FormItem className="flex items-center gap-x-4">
+                                <FormLabel className="py-2">Role</FormLabel>
+                                <FormControl >
                                     <select
+                                    style={{margin:"0px"}}
                                     disabled={isPending}
                                     {...field} // Spread field props to bind onChange, value, etc.
                                     >
-                                    <option value="" disabled>Select a role</option>
+                                    <option value="">Select a role</option>
                                     <option value="ADMIN">Admin</option>
                                     <option value="USER">User</option>
                                     </select>

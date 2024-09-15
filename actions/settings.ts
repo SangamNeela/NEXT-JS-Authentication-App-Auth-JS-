@@ -49,8 +49,7 @@ export const settings=async (values:z.infer<typeof SettingsSchema>)=>{
     }
 
     if(values.password && values.newPassword && dbUser.password){
-        const hashvaluePassword=await bcryptjs.hash(values.password,10);
-        const passwordsMatch = await bcryptjs.compare(hashvaluePassword,dbUser.password);
+        const passwordsMatch = await bcryptjs.compare(values.password,dbUser.password);
         console.log("pass match = ",passwordsMatch)
         if(!passwordsMatch){
             return{error:"Incorrect Password"};
